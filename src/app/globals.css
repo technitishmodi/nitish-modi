@@ -6,11 +6,11 @@
     --foreground: 0 0% 2%;
     --muted: 0 0% 92%;
     --muted-foreground: 0 0% 30%;
-    --hover-bg: 142 76% 96%;
+    --hover-bg: 0 76% 96%;
     --border: 0 0% 70%;
-    --border-hover: 142 76% 46%;
+    --border-hover: 0 76% 46%;
     --accent: 0 0% 0%;
-    --link: 142 76% 36%;
+    --link: 0 76% 36%;
     --radius: 0.5rem;
   }
 
@@ -19,10 +19,10 @@
     --foreground: 0 0% 98%;
     --muted: 0 0% 8%;
     --muted-foreground: 0 0% 60%;
-    --hover-bg: 142 76% 10%;
+    --hover-bg: 0 76% 10%;
     --border: 0 0% 30%;
     --accent: 0 0% 100%;
-    --link: 142 76% 46%;
+    --link: 0 76% 46%;
   }
 
   * {

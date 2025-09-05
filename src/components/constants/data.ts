@@ -6,7 +6,7 @@ export const ABOUT_ME = {
   profileImage: "/profile-image.webp",
   profileGif: "/profile-gif.gif",
   description: [
-    "Hey 👋 I’m Nitish, a developer who codes with curiosity and hacks with responsibility. I love building sleek mobile apps with Flutter, Android, and iOS — and making sure they’re as secure as they are functional.",
+    "Hey 👋"," I’m Nitish, a developer who codes with curiosity and hacks with responsibility. I love building sleek mobile apps with Flutter, Android, and iOS — and making sure they’re as secure as they are functional.",
     "When I’m not coding, you’ll probably find me exploring cybersecurity challenges, running scans with Nmap, analyzing traffic with Wireshark, diving into ethical hacking labs, or exploring and researching the dark web to understand emerging security threats."
   ],
 };
@@ -16,8 +16,8 @@ export const SOCIAL_LINKS = {
   github: "https://github.com/technitishmodi",
   linkedin: "https://linkedin.com/in/nitishmodi",
   twitter: "https://twitter.com/nitishmodi",
-  instagram: "https://instagram.com/nitish.modi",
-  email: "mailto:nitish.modi@example.com",
+  instagram: "https://instagram.com/nitishmodi21",
+  email: "mailto:nubhawbarnwal@gmail.com",
   resume: "/resume.pdf",
   leetcode: "https://leetcode.com/nitishmodi"
 };
@@ -30,6 +30,9 @@ export const USER_NAMES = {
 
 // Skills organized by category
 export const SKILLS = {
+  "Mobile Development": [
+    "flutter", "dart", "android", "ios"
+  ],
   "Programming Languages": [
     "javascript", "typescript", "python", "java", "cpp", "c"
   ],

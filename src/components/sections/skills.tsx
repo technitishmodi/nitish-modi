@@ -12,6 +12,11 @@ import React, { JSX } from "react";
 
 const SKILL_ICONS: Record<string, string> = {
   ...CYBERSECURITY_ICONS,
+  // Mobile Development
+  flutter: "flutter",
+  dart: "dart",
+  android: "androidstudio",
+  ios: "swift",
   html: "html",
   css: "css",
   javascript: "js",
@@ -54,7 +59,6 @@ const SKILL_ICONS: Record<string, string> = {
   php: "php",
   kotlin: "kotlin",
   swift: "swift",
-  dart: "dart",
   scala: "scala",
   aws: "aws",
   azure: "azure",
@@ -83,7 +87,6 @@ const SKILL_ICONS: Record<string, string> = {
   apple: "apple",
   androidstudio: "androidstudio",
   kali: "kali",
-  flutter: "flutter",
   oracle: "oracle",
 };
 
@@ -180,7 +183,7 @@ const SkillBadge = ({ skill }: { skill: string }) => (
 
 const Skills = () => {
   return (
-    <section className="py-5 border-t border-border">
+    <section className="py-5">
       <h2 className="text-xl font-semibold mb-4">technical skills.</h2>
       <div className="space-y-6">
         {Object.entries(SKILLS).map(([key, skills]) => (
