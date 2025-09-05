@@ -30,24 +30,9 @@ const SOCIAL_BUTTONS = [
     icon: <SiLeetcode className="w-5 h-5" />,
   },
   {
-    href: SOCIAL_LINKS.peerlist,
-    label: "Peerlist",
-    icon: <SiPeerlist className="w-5 h-5" />,
-  },
-  {
     href: SOCIAL_LINKS.instagram,
     label: "Instagram",
     icon: <FaInstagram className="w-5 h-5" />,
-  },
-  {
-    href: SOCIAL_LINKS.blog,
-    label: "Blog",
-    icon: (
-      <>
-        <FaBlog className="w-5 h-5" /> Blog
-      </>
-    ),
-    className: "flex items-center gap-2 font-medium",
   },
   {
     href: SOCIAL_LINKS.resume,

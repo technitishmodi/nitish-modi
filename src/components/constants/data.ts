@@ -1,79 +1,122 @@
-// This file contains constants and data used across the portfolio template. 
-// Update the values to personalize your portfolio.
-
+// Personal Information
 export const ABOUT_ME = {
-  name: "Your Name",
-  title: "Software Developer",
-  location: "Your Location",
-  email: "your.email@example.com",
+  name: "Nitish Modi",
+  title: "Cybersecurity Enthusiast & Full Stack Developer",
+  location: "Mumbai, India",
+  profileImage: "/profile-image.webp",
+  profileGif: "/profile-gif.gif",
   description: [
-    "Write a short introduction about yourself!",
-    "Mention your interests, what you love to build, or your coding journey.",
-    "You can add more lines or remove these as you like.",
+    "Hey 👋 I’m Nitish, a developer who codes with curiosity and hacks with responsibility. I love building sleek mobile apps with Flutter, Android, and iOS — and making sure they’re as secure as they are functional.",
+    "When I’m not coding, you’ll probably find me exploring cybersecurity challenges, running scans with Nmap, analyzing traffic with Wireshark, diving into ethical hacking labs, or exploring and researching the dark web to understand emerging security threats."
   ],
-  profileImage: "/profile-image.webp", // Replace with your profile image
-  profileGif: "/profile-gif.gif", // Replace with your personalised gif
 };
 
-export const USER_NAMES = {
-  githubUsername: "your-github-username",
-  leetcodeUsername: "your-leetcode-username", // remove or keep blank if you don't have a LeetCode profile
-  hashnodeUsername: "your-hashnode-username", // remove or keep blank if you don't have a Hashnode profile
-};
-
+// Social Media Links
 export const SOCIAL_LINKS = {
-  github: "https://github.com/your-github-username",
-  linkedin: "https://linkedin.com/in/your-linkedin",
-  twitter: "https://twitter.com/your-twitter",
-  leetcode: "https://leetcode.com/your-leetcode",
-  peerlist: "https://peerlist.io/your-peerlist", // remove or keep blank if you don't have a Peerlist profile
-  instagram: "https://instagram.com/your-instagram",
-  email: "mailto:your.email@example.com",
-  blog: "https://yourblog.com", // remove if you don't have a blog
-  resume: "https://your-resume-drive-link.com",
+  github: "https://github.com/technitishmodi",
+  linkedin: "https://linkedin.com/in/nitishmodi",
+  twitter: "https://twitter.com/nitishmodi",
+  instagram: "https://instagram.com/nitish.modi",
+  email: "mailto:nitish.modi@example.com",
+  resume: "/resume.pdf",
+  leetcode: "https://leetcode.com/nitishmodi"
 };
 
-// Contact form endpoint (update with your own Formspree endpoint)
-export const FORM_ENDPOINT = "https://formspree.io/f/your-form-id";
-
-export const SKILLS = { // Keep only the skills you want to showcase and remove the rest
-  frontend: [
-    "HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Vue.js", "Angular", "Redux", "TailwindCSS", "Bootstrap", "Sass", "Less", "jQuery"
-  ],
-  backend: [
-    "Node.js", "Express.js", "NestJS", "Django", "Flask", "Spring Boot", "Ruby on Rails", "Laravel", "ASP.NET", "FastAPI"
-  ],
-  databases: [
-    "MongoDB", "MySQL", "PostgreSQL", "SQLite", "Redis", "Firebase", "Supabase"
-  ],
-  languages: [
-    "C", "C++", "C#", "Java", "Python", "JavaScript", "TypeScript", "Go", "Rust", "Ruby", "PHP", "Kotlin", "Swift", "Dart", "Scala"
-  ],
-  cloudDevOps: [
-    "AWS", "Azure", "GCP", "Docker", "Kubernetes", "Vercel", "Netlify", "Heroku", "GitHub Actions", "Jenkins"
-  ],
-  tools: [
-    "VS Code", "Git", "GitHub", "GitLab", "Bitbucket", "Postman", "Figma", "Vite", "Webpack", "Babel", "Jest", "Linux", "Windows", "MacOS"
-  ],
+// User Names
+export const USER_NAMES = {
+  githubUsername: "technitishmodi",
+  leetcodeUsername: "nitishmodi"
 };
 
+// Skills organized by category
+export const SKILLS = {
+  "Programming Languages": [
+    "javascript", "typescript", "python", "java", "cpp", "c"
+  ],
+  "Frontend Development": [
+    "react", "nextjs", "html", "css", "tailwind", "sass"
+  ],
+  "Backend Development": [
+    "nodejs", "express", "django", "flask", "fastapi"
+  ],
+  "Databases": [
+    "mongodb", "mysql", "postgresql", "redis"
+  ],
+  "Cloud & DevOps": [
+    "aws", "gcp", "docker", "kubernetes", "nginx"
+  ],
+  "Cybersecurity": [
+    "Kali Linux",
+    "Network Security",
+    "Nmap",
+    "Wireshark",
+    "Dark Web Research",
+    "TOR",
+    "Anonymity & Privacy Tools",
+    "Penetration Testing",
+    "Metasploit",
+    "Burp Suite",
+    "OWASP",
+    "Network Security",
+    "Ethical Hacking",
+  ],
+  "Tools & Technologies": [
+    "git", "linux", "bash", "powershell", "vscode"
+  ]
+};
+
+// Projects
 export const PROJECTS = [
   {
-    name: "Project 1",
-    description: "Describe your project 1 here. Example: A web app for tracking habits.",
-    tech: ["React", "TypeScript"],
-    link: "https://yourproject1-link.com",
-    github: "https://github.com/yourusername/project1",
+    name: "SecureWeb Portfolio",
+    description: "A secure, mobile-responsive portfolio website built with Next.js 15 and modern security practices. Features comprehensive mobile optimization, professional design, and robust security implementations.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Security Headers"],
+    github: "https://github.com/technitishmodi/Portfolio",
+    link: "https://nitishmodi.vercel.app"
   },
   {
-    name: "Project 2",
-    description: "Describe your project 2 here. Example: An e-commerce site for books.",
-    tech: ["Next.js", "Tailwind CSS"],
-    link: "https://yourproject2-link.com",
-    github: "https://github.com/yourusername/project2",
+    name: "Vulnerability Scanner",
+    description: "An automated web application vulnerability scanner that identifies common security issues like XSS, SQL injection, and CSRF vulnerabilities. Built with Python and includes comprehensive reporting.",
+    tech: ["Python", "Requests", "BeautifulSoup", "SQLAlchemy", "Flask"],
+    github: "https://github.com/technitishmodi/vuln-scanner",
+    link: null
   },
-  // Add more projects as needed
+  {
+    name: "Secure Chat Application",
+    description: "End-to-end encrypted real-time chat application with secure authentication, message encryption, and user privacy protection. Implements modern cryptographic standards.",
+    tech: ["Node.js", "Socket.io", "MongoDB", "JWT", "Crypto"],
+    github: "https://github.com/technitishmodi/secure-chat",
+    link: "https://securechat-demo.vercel.app"
+  },
+  {
+    name: "Network Security Monitor",
+    description: "Real-time network traffic analysis tool that monitors for suspicious activities and potential security threats. Features customizable alerts and detailed logging.",
+    tech: ["Python", "Scapy", "Flask", "SQLite", "Chart.js"],
+    github: "https://github.com/technitishmodi/network-monitor",
+    link: null
+  },
+
+]
+// Education
+export const EDUCATION = [
+  {
+    degree: "Bachelor of Technology in Computer Science",
+    institution: "Mumbai University",
+    institutionLink: "https://mu.ac.in",
+    period: "2020 - 2024",
+    score: "8.5 CGPA"
+  },
+  {
+    degree: "Higher Secondary Certificate (Science)",
+    institution: "Maharashtra State Board",
+    institutionLink: "https://mahahsscboard.in",
+    period: "2018 - 2020",
+    score: "92.5%"
+  }
 ];
+
+// Form endpoint for contact form
+export const FORM_ENDPOINT = "https://formspree.io/f/your-form-id";
 
 export const EXPERIENCE = [
   {
@@ -86,15 +129,4 @@ export const EXPERIENCE = [
     skills: ["React", "Node.js", "XXXX"],
   },
   // Add more experience as needed
-];
-
-export const EDUCATION = [
-  {
-    degree: "Your Degree (e.g., B.Tech. in Computer Science)",
-    institution: "Your University",
-    institutionLink: "https://youruniversity.com/",
-    period: "2020 - 2024",
-    score: "XX % or GPA",
-  },
-  // Add more education as needed
 ];
