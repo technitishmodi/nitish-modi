@@ -1,8 +1,16 @@
-# 🚀 My Developer Portfolio
+# 🚀 Nitish Modi - Developer Portfolio
 
-This portfolio was created using the [Neo Portfolio CLI](https://github.com/decodewithdeepak/create-neo-portfolio), built and maintained by [Deepak Modi](https://decodewithdeepak.vercel.app).
+A modern, responsive portfolio website showcasing my work as a Cybersecurity Enthusiast & Full Stack Developer.
 
 ---
+
+## Features
+
+- **Responsive Design** - Optimized for all devices
+- **Modern Tech Stack** - Built with Next.js 15, React, TypeScript & Tailwind CSS
+- **Security Focused** - Implements modern security practices
+- **Performance Optimized** - Fast loading and smooth animations
+- **Dark/Light Mode** - Theme switching support
 
 ## Get Started
 
@@ -13,7 +21,7 @@ This portfolio was created using the [Neo Portfolio CLI](https://github.com/deco
 ## Run Locally
 
 ```bash
-# npm install (not required if you used the CLI)
+npm install
 npm run dev
 ```
 
@@ -23,6 +31,15 @@ npm run dev
 
 ---
 
-## Credits
+## Built With
 
-Created with ❤️ using [Neo Portfolio CLI](https://github.com/decodewithdeepak/create-neo-portfolio) by Deepak Modi.
+- **Next.js 15** - React framework
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **React Icons** - Icon library
+- **Vercel Analytics** - Analytics
+- **Next Themes** - Theme switching
+
+---
+
+**© 2025 Nitish Modi. All rights reserved.**

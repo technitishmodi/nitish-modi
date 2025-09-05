@@ -1,7 +1,9 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
 import { ABOUT_ME } from "../constants/data";
 import ThemeToggle from "../ui/theme-toggle";
+import { Menu, X } from "lucide-react";
 
 const STAGGER = 30; // Delay between each letter in milliseconds
 
@@ -14,11 +16,14 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   // Handle smooth scroll to section when nav link is clicked
   const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const element = document.getElementById(href.substring(1)); // Remove '#' from href
     if (element) element.scrollIntoView({ behavior: "instant" });
+    setIsMobileMenuOpen(false); // Close mobile menu after clicking
   };
 
   return (
@@ -69,11 +74,42 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Theme toggle button */}
-        <div className="ml-6">
+        {/* Mobile menu button and theme toggle */}
+        <div className="flex items-center gap-3">
           <ThemeToggle />
+          
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden p-2 rounded-lg hover:bg-hover-bg transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
+          </button>
         </div>
       </div>
+
+      {/* Mobile navigation menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden mt-4 py-4 border-t border-border">
+          <div className="flex flex-col space-y-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={(e) => handleScrollToSection(e, item.href)}
+                className="text-base text-foreground/80 hover:text-foreground transition-colors py-2 px-2 rounded-lg hover:bg-hover-bg"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

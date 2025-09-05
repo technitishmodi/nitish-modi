@@ -55,7 +55,7 @@ const useISTTime = () => {
 const ProfileImage = ({ isHovering, setIsHovering }: ProfileImageProps) => (
   <div className="flex-shrink-0">
     <div
-      className="w-24 h-24 rounded-full overflow-hidden border-4 border-border cursor-pointer duration-200"
+      className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-border cursor-pointer duration-200"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -99,12 +99,12 @@ const VerifiedBadge = ({ showTooltip, setShowTooltip }: VerifiedBadgeProps) => (
 );
 
 const LocationTime = ({ currentTime }: LocationTimeProps) => (
-  <div className="hidden md:block text-base text-muted-foreground space-y-1 text-right">
+  <div className="hidden sm:block text-sm md:text-base text-muted-foreground space-y-1 text-right">
     <div className="flex items-center gap-2 justify-end">
-      <FaLocationCrosshairs className="w-4 h-4" />
-      <span className="font-mono">{ABOUT_ME.location}</span>
+      <FaLocationCrosshairs className="w-3 h-3 md:w-4 md:h-4" />
+      <span className="font-mono text-xs md:text-sm">{ABOUT_ME.location}</span>
     </div>
-    <div className="font-mono">{currentTime} IST</div>
+    <div className="font-mono text-xs md:text-sm">{currentTime} IST</div>
   </div>
 );
 
@@ -119,12 +119,12 @@ const Header = () => {
 
   return (
     <section className="pt-5">
-      <div className="flex items-center gap-4 mb-4">
+      <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4">
         <ProfileImage isHovering={isHovering} setIsHovering={setIsHovering} />
 
-        <div className="flex-1">
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 flex-wrap">
+            <h1 className="text-xl sm:text-2xl font-bold leading-tight">
               {ABOUT_ME.name}
             </h1>
             <VerifiedBadge
@@ -132,9 +132,19 @@ const Header = () => {
               setShowTooltip={setShowTooltip}
             />
           </div>
-          <p className="text-base text-muted-foreground font-medium">
+          <p className="text-sm sm:text-base text-muted-foreground font-medium leading-relaxed mt-1">
             {ABOUT_ME.title}
           </p>
+          
+          {/* Mobile location display */}
+          <div className="sm:hidden mt-2 text-xs text-muted-foreground">
+            <div className="flex items-center gap-1">
+              <FaLocationCrosshairs className="w-3 h-3" />
+              <span className="font-mono">{ABOUT_ME.location}</span>
+              <span className="mx-1">•</span>
+              <span className="font-mono">{currentTime} IST</span>
+            </div>
+          </div>
         </div>
 
         <LocationTime currentTime={currentTime} />

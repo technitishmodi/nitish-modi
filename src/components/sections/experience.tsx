@@ -18,33 +18,33 @@ export default function Experience() {
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
             </span>
 
-            <div className="space-y-3 pl-4">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <div className="space-y-1">
-                  <h3 className="font-medium text-base">{exp.role}</h3>
+            <div className="space-y-3 pl-4 sm:pl-6">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
+                <div className="space-y-1 flex-1 min-w-0">
+                  <h3 className="font-medium text-base sm:text-lg">{exp.role}</h3>
                   <p className="text-sm text-muted-foreground">
                     <Link
                       href={exp.companyLink || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="link"
+                      className="link break-words"
                     >
                       {exp.company}
-                      <MdOutlineArrowOutward className="inline-block w-4 h-4 ml-1" />
+                      <MdOutlineArrowOutward className="inline-block w-3 h-3 sm:w-4 sm:h-4 ml-1" />
                     </Link>
                   </p>
                 </div>
-                <div className="flex flex-col text-left sm:text-right">
-                  <span className="text-sm text-muted-foreground font-mono">
+                <div className="flex flex-col text-left sm:text-right flex-shrink-0">
+                  <span className="text-xs sm:text-sm text-muted-foreground font-mono">
                     {exp.period}
                   </span>
-                  <span className="text-sm text-muted-foreground font-mono">
+                  <span className="text-xs sm:text-sm text-muted-foreground font-mono">
                     {exp.location}
                   </span>
                 </div>
               </div>
 
-              <p className="text-sm text-muted-foreground leading-relaxed text-justify">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {exp.description}
               </p>
 
@@ -52,7 +52,7 @@ export default function Experience() {
                 {exp.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-2 py-1 text-xs rounded-md badge text-foreground"
+                    className="px-2 py-1 text-xs rounded-md badge text-foreground whitespace-nowrap"
                   >
                     {skill}
                   </span>

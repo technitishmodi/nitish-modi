@@ -32,6 +32,13 @@
 
   body {
     overflow-x: hidden;
+    font-size: 14px;
+  }
+
+  @media (min-width: 640px) {
+    body {
+      font-size: 16px;
+    }
   }
 
   body {
@@ -148,6 +155,29 @@
       -webkit-mask-image: linear-gradient(150deg, #000 0%, #000 0%, transparent 8%, transparent 100%);
       mask-image: linear-gradient(150deg, #000 0%, #000 0%, transparent 8%, transparent 100%);
     }
+  }
+
+  /* Modal and overlay improvements */
+  .modal-overlay {
+    backdrop-filter: blur(8px);
+  }
+
+  /* Smooth scrollbar for modal content */
+  .modal-content::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .modal-content::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .modal-content::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  .modal-content::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--border-hover));
   }
 
 }
