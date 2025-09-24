@@ -15,7 +15,7 @@ export default function Experience() {
           <div key={index} className="relative">
             {/* Solid dot */}
             <span className="absolute -left-3 -top-0 bg-muted rounded-full w-6 h-6 flex items-center justify-center z-10">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
             </span>
 
             <div className="space-y-3 pl-4 sm:pl-6">

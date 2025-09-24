@@ -126,19 +126,19 @@
   }
 
   .badge {
-    /* slightly translucent in light mode so the page gradient can show through */
-    background-color: hsl(var(--muted) / 0.9);
+    background-color: transparent;
     border: 1px solid hsl(var(--border));
     border-radius: var(--radius);
   }
 
   .badge:hover {
     border-color: hsl(var(--border-hover));
+    /* subtle light-blue hover background (same effect in light and dark mode) */
+    background-color: hsl(210 100% 95% / 0.08);
   }
 
   .box {
-    /* slightly translucent in light mode so the page gradient can show through */
-    background-color: hsl(var(--muted) / 0.92);
+
     border-radius: var(--radius);
   }
 
@@ -174,8 +174,9 @@
     background-color: hsl(var(--background) / 0.88);
   }
 
-  /* Keep full opacity in dark mode for better contrast */
-  .dark .badge,
+  /* Keep full opacity in dark mode for better contrast for boxes/backgrounds.
+     We intentionally exclude .dark .badge so badges remain transparent by default
+     (they will still get a light hover background above). */
   .dark .box,
   .dark .bg-muted,
   .dark .bg-background {

@@ -102,7 +102,7 @@ const renderField = (
 ) => {
   const Icon = field.icon;
   const commonClasses =
-    "w-full pl-10 pr-4 py-2 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-border-hover";
+    "w-full pl-10 pr-4 py-2 rounded-lg border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-border-hover";
 
   return (
     <div key={field.name}>

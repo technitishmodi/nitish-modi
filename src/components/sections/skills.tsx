@@ -148,14 +148,13 @@ const CustomIcons: Record<string, JSX.Element> = {
     </svg>
   ),
 };
-
 const SkillBadge = ({ skill }: { skill: string }) => (
   <span
-    className="badge flex items-center justify-center gap-1.5 sm:gap-2 min-w-[60px] sm:min-w-[72px] h-7 sm:h-8 px-2 py-1 rounded-lg bg-muted border border-border text-foreground font-medium text-xs sm:text-sm hover:bg-[hsl(var(--hover-bg))] transition-colors duration-200 group"
+    className="badge flex items-center justify-center gap-1.5 sm:gap-2 min-w-[60px] sm:min-w-[72px] h-7 sm:h-8 px-2 py-1 rounded-lg border border-border text-foreground font-medium text-xs sm:text-sm"
     style={{ boxSizing: 'border-box' }}
   >
     {CustomIcons[skill] ? (
-      React.cloneElement(CustomIcons[skill], { className: "w-3 h-3 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform duration-200" })
+      React.cloneElement(CustomIcons[skill], { className: "w-3 h-3 sm:w-4 sm:h-4" })
     ) : SKILL_ICONS[skill] ? (
       ["penetration-testing", "vulnerability-assessment", "network-security", "web-security"].includes(skill) ? (
         <svg className="w-5 h-5" viewBox="0 0 24 24">
