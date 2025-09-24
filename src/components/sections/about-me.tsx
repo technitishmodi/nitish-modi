@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ABOUT_ME, SOCIAL_LINKS } from "@/components/constants/data";
 import { Github, Linkedin, Mail, FileText } from "lucide-react";

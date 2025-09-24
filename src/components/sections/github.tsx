@@ -38,6 +38,32 @@ const useTheme = () => {
 // =============================================
 export default function Github() {
   const colorScheme = useTheme();
+  const [repos, setRepos] = useState<any[] | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchRepos = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const res = await fetch(`https://api.github.com/users/${USER_NAMES.githubUsername}/repos?per_page=100`);
+        if (!res.ok) {
+          throw new Error(`GitHub API error: ${res.status}`);
+        }
+        const data = await res.json();
+        const sorted = (data || []).sort((a: any, b: any) => b.stargazers_count - a.stargazers_count);
+        setRepos(sorted.slice(0, 3));
+      } catch (err: any) {
+        setError(err?.message || "Failed to fetch repos");
+        setRepos([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRepos();
+  }, []);
 
   return (
     <section className="py-5" id="github">
@@ -61,6 +87,7 @@ export default function Github() {
         </Link>
       </div>
 
+      
       {/* GitHub Calendar */}
       <div className="w-full overflow-hidden">
         <div className="overflow-x-auto">
@@ -75,6 +102,32 @@ export default function Github() {
           </div>
         </div>
       </div>
+      
+      {/* Top 3 repositories by stars */}
+      <div className="mt-6">
+        <h3 className="text-lg font-semibold mb-3">Top repositories</h3>
+
+        {loading && <div className="text-sm text-muted-foreground">Loading repositories...</div>}
+        {error && <div className="text-sm text-destructive">{error}</div>}
+
+        {repos && repos.length === 0 && !loading && (
+          <div className="text-sm text-muted-foreground">No repositories found.</div>
+        )}
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {repos && repos.map((r) => (
+            <a key={r.id} href={r.html_url} target="_blank" rel="noopener noreferrer" className="flex flex-col p-4 border border-border rounded-md hover:shadow-md transition-shadow h-full">
+              <div className="flex items-center justify-between mb-1">
+                <div className="font-medium">{r.name}</div>
+                <div className="text-xs text-muted-foreground">★ {r.stargazers_count}</div>
+              </div>
+              {r.description && <div className="text-sm text-muted-foreground mb-2">{r.description}</div>}
+              <div className="mt-auto text-xs text-muted-foreground">{r.language ?? "—"}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+
     </section>
   );
 }

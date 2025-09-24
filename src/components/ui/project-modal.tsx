@@ -196,7 +196,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                   {project.challenges.map((challenge, index) => (
                     <div key={index} className="p-4 border border-border rounded-lg">
                       <div className="mb-3">
-                        <h4 className="font-medium text-red-600 dark:text-red-400 mb-1">
+                        <h4 className="font-medium text-blue-600 dark:text-blue-400 mb-1">
                           Challenge:
                         </h4>
                         <p className="text-sm text-muted-foreground">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Eye } from "lucide-react";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import Link from "next/link";
 import { PROJECTS } from "@/components/constants/data";
@@ -33,57 +33,86 @@ export default function Projects() {
       <div className="space-y-6 sm:space-y-8">
         {PROJECTS.map((project) => (
           <div key={project.name} className="relative">
-            <div className="space-y-3 border-l-2 border-muted pl-4 sm:pl-6">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
-                <div className="flex flex-col flex-1 min-w-0">
-                  <h3 className="font-medium text-base sm:text-lg text-left">
+            <div className="flex flex-col sm:flex-row gap-4">
+              {/* Left: screenshot on desktop */}
+              {project.screenshot && (
+                <div className="flex-shrink-0 w-full sm:w-24 md:w-32">
+                  <div className="aspect-[9/16] sm:aspect-[9/16] overflow-hidden rounded-md border border-border">
                     <button
+                      type="button"
                       onClick={() => handleProjectClick(project.name)}
-                      className="link text-left hover:text-link transition-colors"
+                      aria-label={`Preview ${project.name}`}
+                      className="relative w-full h-full group focus:outline-none"
                     >
-                      {project.name}
-                      <FaArrowTrendUp className="inline-block w-4 h-4 sm:w-5 sm:h-5 ml-2 align-text-bottom" />
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Eye className="w-6 h-6 text-white" />
+                      </div>
+
+                      {/* Image */}
+                      <img
+                        src={project.screenshot}
+                        alt={`${project.name} screenshot`}
+                        className="w-full h-full object-cover"
+                      />
                     </button>
-                  </h3>
-                  <p className="text-xs text-muted-foreground">Click to know more...</p>
+                  </div>
                 </div>
-                <div className="flex gap-2 flex-shrink-0">
-                  {project.link && (
+              )}
+
+              {/* Right: content */}
+              <div className="space-y-3 border-l-2 border-muted pl-4 sm:pl-6 flex-1">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
+                  <div className="flex flex-col flex-1 min-w-0">
+                    <h3 className="font-medium text-base sm:text-lg text-left">
+                      <button
+                        onClick={() => handleProjectClick(project.name)}
+                        className="link text-left hover:text-link transition-colors"
+                      >
+                        {project.name}
+                        <FaArrowTrendUp className="inline-block w-4 h-4 sm:w-5 sm:h-5 ml-2 align-text-bottom" />
+                      </button>
+                    </h3>
+                    <p className="text-xs text-muted-foreground">Click to know more...</p>
+                  </div>
+                  <div className="flex gap-2 flex-shrink-0">
+                    {project.link && (
+                      <Link
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 btn hover:scale-95 transition-transform"
+                        aria-label="View project"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </Link>
+                    )}
                     <Link
-                      href={project.link}
+                      href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 btn hover:scale-95 transition-transform"
-                      aria-label="View project"
+                      aria-label="View source code"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <Github className="w-4 h-4" />
                     </Link>
-                  )}
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 btn hover:scale-95 transition-transform"
-                    aria-label="View source code"
-                  >
-                    <Github className="w-4 h-4" />
-                  </Link>
+                  </div>
                 </div>
-              </div>
 
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {project.description}
-              </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {project.description}
+                </p>
 
-              <div className="flex flex-wrap gap-1.5">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 text-xs badge text-foreground whitespace-nowrap"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs badge text-foreground whitespace-nowrap"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

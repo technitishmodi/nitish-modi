@@ -151,7 +151,7 @@ const CustomIcons: Record<string, JSX.Element> = {
 
 const SkillBadge = ({ skill }: { skill: string }) => (
   <span
-    className="badge flex items-center justify-center gap-1.5 sm:gap-2 min-w-[60px] sm:min-w-[72px] h-7 sm:h-8 px-2 py-1 rounded-lg bg-background border border-border text-foreground font-medium text-xs sm:text-sm shadow-sm hover:shadow-md transition-all duration-200 group"
+    className="badge flex items-center justify-center gap-1.5 sm:gap-2 min-w-[60px] sm:min-w-[72px] h-7 sm:h-8 px-2 py-1 rounded-lg bg-muted border border-border text-foreground font-medium text-xs sm:text-sm hover:bg-[hsl(var(--hover-bg))] transition-colors duration-200 group"
     style={{ boxSizing: 'border-box' }}
   >
     {CustomIcons[skill] ? (

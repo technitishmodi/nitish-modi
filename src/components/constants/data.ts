@@ -6,7 +6,7 @@ export const ABOUT_ME = {
   profileImage: "/profile-image.webp",
   profileGif: "/profile-gif.gif",
   description: [
-    "Hey 👋"," I’m Nitish, a developer who codes with curiosity and hacks with responsibility. I love building sleek mobile apps with Flutter, Android, and iOS — and making sure they’re as secure as they are functional.",
+    "Hey 👋, I’m Nitish, a developer who codes with curiosity and hacks with responsibility. I love building sleek mobile apps with Flutter, Android, and iOS — and making sure they’re as secure as they are functional.",
     "When I’m not coding, you’ll probably find me exploring cybersecurity challenges, running scans with Nmap, analyzing traffic with Wireshark, diving into ethical hacking labs, or exploring and researching the dark web to understand emerging security threats."
   ],
 };
@@ -60,7 +60,6 @@ export const SKILLS = {
     "Metasploit",
     "Burp Suite",
     "OWASP",
-    "Network Security",
     "Ethical Hacking",
   ],
   "Tools & Technologies": [
@@ -75,6 +74,7 @@ export const PROJECTS = [
     description: "A secure, mobile-responsive portfolio website built with Next.js 15 and modern security practices. Features comprehensive mobile optimization, professional design, and robust security implementations.",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Security Headers"],
     github: "https://github.com/technitishmodi/Portfolio",
+    screenshot: "/portfolio-hero.jpg",
     link: "https://nitishmodi.vercel.app"
   },
   {
@@ -82,6 +82,7 @@ export const PROJECTS = [
     description: "An automated web application vulnerability scanner that identifies common security issues like XSS, SQL injection, and CSRF vulnerabilities. Built with Python and includes comprehensive reporting.",
     tech: ["Python", "Requests", "BeautifulSoup", "SQLAlchemy", "Flask"],
     github: "https://github.com/technitishmodi/vuln-scanner",
+    screenshot: "/vuln-scanner-hero.jpg",
     link: null
   },
   {
@@ -89,6 +90,7 @@ export const PROJECTS = [
     description: "End-to-end encrypted real-time chat application with secure authentication, message encryption, and user privacy protection. Implements modern cryptographic standards.",
     tech: ["Node.js", "Socket.io", "MongoDB", "JWT", "Crypto"],
     github: "https://github.com/technitishmodi/secure-chat",
+    screenshot: "/secure-chat-hero.jpg",
     link: "https://securechat-demo.vercel.app"
   },
   {
@@ -96,27 +98,11 @@ export const PROJECTS = [
     description: "Real-time network traffic analysis tool that monitors for suspicious activities and potential security threats. Features customizable alerts and detailed logging.",
     tech: ["Python", "Scapy", "Flask", "SQLite", "Chart.js"],
     github: "https://github.com/technitishmodi/network-monitor",
+    screenshot: "/network-monitor-hero.jpg",
     link: null
   },
 
 ]
-// Education
-export const EDUCATION = [
-  {
-    degree: "Bachelor of Technology in Computer Science",
-    institution: "Mumbai University",
-    institutionLink: "https://mu.ac.in",
-    period: "2020 - 2024",
-    score: "8.5 CGPA"
-  },
-  {
-    degree: "Higher Secondary Certificate (Science)",
-    institution: "Maharashtra State Board",
-    institutionLink: "https://mahahsscboard.in",
-    period: "2018 - 2020",
-    score: "92.5%"
-  }
-];
 
 // Form endpoint for contact form
 export const FORM_ENDPOINT = "https://formspree.io/f/your-form-id";

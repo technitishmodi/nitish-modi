@@ -1,4 +1,3 @@
-import GridPattern from "@/components/ui/grid-pattern";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import Navbar from "@/components/sections/navbar";
 import Header from "@/components/sections/header";
@@ -6,34 +5,31 @@ import AboutMe from "@/components/sections/about-me";
 import Skills from "@/components/sections/skills";
 import Projects from "@/components/sections/projects";
 import Experience from "@/components/sections/experience";
-import Education from "@/components/sections/education";
 import Github from "@/components/sections/github";
 // import LeetCode from "@/components/sections/leetcode";
-import Blog from "@/components/sections/blog";
 import Contact from "@/components/sections/contact";
 import Footer from "@/components/sections/footer";
+import SectionTabs from "@/components/ui/section-tabs";
 
 export default function Home() {
   return (
     <div className="font-sans min-h-screen flex flex-col items-center justify-center relative">
-      {/* Faded Grid Background */}
-      <GridPattern />
-
       <main className="relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <Navbar />
         <ScrollToTop />
 
         <section id="header"><Header /></section>
-        <section id="about"><AboutMe /></section>
-        <section id="skills"><Skills /></section>
-        <section id="projects"><Projects /></section>
-        <section id="experience"><Experience /></section>
-        <section id="education"><Education /></section>
-        <section id="github"><Github /></section>
-        {/* <section id="leetcode"><LeetCode /></section> */}
-        {/* <section id="blog"><Blog /></section> */}
-        <section id="contact"><Contact /></section>
-        
+
+        <SectionTabs
+          tabs={[
+            { id: "projects", label: "Projects", content: <Projects /> },
+            { id: "skills", label: "Skills", content: <Skills /> },
+            { id: "experience", label: "Experience", content: <Experience /> },
+            { id: "github", label: "GitHub", content: <Github /> },
+            { id: "contact", label: "Contact", content: <Contact /> },
+          ]}
+        />
+
         <Footer />
       </main>
 

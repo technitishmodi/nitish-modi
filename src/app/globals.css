@@ -3,31 +3,48 @@
 @layer base {
   :root {
     --background: 0 0% 97%;
-    --foreground: 0 0% 2%;
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 30%;
-    --hover-bg: 0 76% 96%;
-    --border: 0 0% 70%;
-    --border-hover: 0 76% 46%;
-    --accent: 0 0% 0%;
-    --link: 0 76% 36%;
+    --foreground: 205 18% 18%;
+    /* soft light-blue surface used for badges, boxes, and muted containers */
+    --muted: 210 46% 97%;
+  /* subtle icy blue for muted text (light mode) */
+  --muted-foreground: 210 14% 36%;
+    /* light-blue hover background for buttons/controls */
+    --hover-bg: 210 100% 95%;
+  /* active tab background: very pale blue to match gradient */
+  --tab-active-bg: 210 100% 96%;
+  /* subtle bluish border in light mode */
+  --border: 215 14% 84%;
+  /* stronger bluish border on hover/focus */
+  --border-hover: 210 90% 60%;
+    --accent: 220 95% 45%; /* blue accent HSL */
+    --link: 220 95% 45%;
+    --link-hover: 210 100% 40%; /* brighter blue on hover */
     --radius: 0.5rem;
   }
 
   .dark {
     --background: 0 0% 3%;
-    --foreground: 0 0% 98%;
-    --muted: 0 0% 8%;
-    --muted-foreground: 0 0% 60%;
-    --hover-bg: 0 76% 10%;
-    --border: 0 0% 30%;
-    --accent: 0 0% 100%;
-    --link: 0 76% 46%;
+    --foreground: 205 20% 96%;
+    /* subtle bluish surface for muted containers in dark mode */
+    --muted: 210 18% 8%;
+  /* subtle icy blue for muted text (dark mode) */
+  --muted-foreground: 210 14% 70%;
+  /* dark-mode hover: bluish highlight instead of red */
+  --hover-bg: 210 60% 12%;
+  /* dark-mode active tab: deep navy */
+  --tab-active-bg: 210 20% 16%;
+  /* dark-mode border: muted bluish-gray */
+  --border: 215 16% 28%;
+  /* dark-mode border hover: bluish highlight */
+  --border-hover: 210 80% 45%;
+  --accent: 0 0% 100%;
+    --link: 200 100% 65%;
+    --link-hover: 200 100% 75%;
   }
 
   * {
     scroll-behavior: smooth;
-    font-family: var(--font-outfit);
+    font-family: var(--font-primary);
   }
 
   body {
@@ -44,14 +61,7 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family:
-      var(--font-outfit),
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      "Helvetica Neue",
-      Arial,
+    font-family: var(--font-primary), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   }
 
   ::selection {
@@ -67,7 +77,31 @@
 
 @layer utilities {
 
-  /* Links */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -9999;
+  }
+
+  .skip-link:focus,
+  .skip-link:active {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+    border-radius: 6px;
+    z-index: 9999;
+  }
+
   a,
   .link {
     color: inherit;
@@ -76,24 +110,24 @@
 
   a:hover:not(.btn):not(.btn *),
   .link:hover:not(.btn):not(.btn *) {
-    color: hsl(var(--link));
+    color: hsl(var(--link-hover));
   }
 
-  /* Buttons */
   .btn {
-    background-color: hsl(var(--accent));
-    color: hsl(var(--background));
-    border: none;
+    background-color: transparent;
+    color: hsl(var(--foreground));
+    border: 2px solid hsl(var(--border));
     border-radius: var(--radius);
   }
 
   .btn:hover {
-    background-color: hsl(var(--accent) / 0.85);
+    background-color: hsl(var(--hover-bg));
+    border-color: hsl(var(--border-hover));
   }
 
-  /* Badges */
   .badge {
-    background-color: hsl(var(--muted));
+    /* slightly translucent in light mode so the page gradient can show through */
+    background-color: hsl(var(--muted) / 0.9);
     border: 1px solid hsl(var(--border));
     border-radius: var(--radius);
   }
@@ -102,9 +136,9 @@
     border-color: hsl(var(--border-hover));
   }
 
-  /* Boxes */
   .box {
-    background-color: hsl(var(--muted));
+    /* slightly translucent in light mode so the page gradient can show through */
+    background-color: hsl(var(--muted) / 0.92);
     border-radius: var(--radius);
   }
 
@@ -113,7 +147,6 @@
     border-color: hsl(var(--border));
   }
 
-  /* Utility classes */
   .accent {
     color: hsl(var(--accent));
   }
@@ -127,7 +160,8 @@
   }
 
   .bg-muted {
-    background-color: hsl(var(--muted));
+    /* translucent variant so underlying gradient remains visible in light mode */
+    background-color: hsl(var(--muted) / 0.95);
   }
 
   .bg-accent {
@@ -136,33 +170,26 @@
   }
 
   .bg-background {
-    background-color: hsl(var(--background));
+    /* make main background containers slightly translucent in light mode */
+    background-color: hsl(var(--background) / 0.88);
+  }
+
+  /* Keep full opacity in dark mode for better contrast */
+  .dark .badge,
+  .dark .box,
+  .dark .bg-muted,
+  .dark .bg-background {
+    background-color: hsl(var(--muted));
   }
 
   .border-border {
     border-color: hsl(var(--border));
   }
 
-  /* Grid Pattern Desktop */
-  .grid-pattern {
-    -webkit-mask-image: linear-gradient(150deg, #000 0%, #000 2%, transparent 18%, transparent 100%);
-    mask-image: linear-gradient(150deg, #000 0%, #000 2%, transparent 18%, transparent 100%);
-  }
-
-  /* Mobile override */
-  @media (max-width: 768px) {
-    .grid-pattern {
-      -webkit-mask-image: linear-gradient(150deg, #000 0%, #000 0%, transparent 8%, transparent 100%);
-      mask-image: linear-gradient(150deg, #000 0%, #000 0%, transparent 8%, transparent 100%);
-    }
-  }
-
-  /* Modal and overlay improvements */
   .modal-overlay {
     backdrop-filter: blur(8px);
   }
 
-  /* Smooth scrollbar for modal content */
   .modal-content::-webkit-scrollbar {
     width: 6px;
   }
@@ -180,4 +207,20 @@
     background: hsl(var(--border-hover));
   }
 
+}
+
+/* Theme-aware full-page gradient utility used on the site root */
+@layer utilities {
+  .bg-portfolio-gradient {
+    /* stronger light-mode gradient so it's clearly visible (soft blue -> pale indigo) */
+    background-image: linear-gradient(180deg, #f8fafc 0%, #e0f2fe 45%, #eef2ff 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* darker, deeper gradient for .dark theme */
+  .dark .bg-portfolio-gradient {
+    background-image: linear-gradient(180deg, #071029 0%, #021129 50%, #000814 100%);
+  }
 }

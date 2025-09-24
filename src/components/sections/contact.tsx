@@ -197,7 +197,7 @@ const Contact = () => {
             </p>
           )}
           {status === "error" && (
-            <p className="text-red-600 text-sm text-center">{errorMessage}</p>
+            <p className="text-blue-600 text-sm text-center">{errorMessage}</p>
           )}
         </form>
       </div>

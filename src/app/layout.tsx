@@ -5,10 +5,11 @@ import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
 
 const outfit = Outfit({
-  variable: "--font-outfit",
+  variable: "--font-primary",
   subsets: ["latin"],
   display: "swap",
   preload: true,
+  weight: ["300", "400", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -118,9 +119,15 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${outfit.className} antialiased`}>
+  <body className={`${outfit.className} antialiased bg-portfolio-gradient min-h-screen`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          {/* Accessible skip link — visible on keyboard focus */}
+          <a href="#site-main" className="skip-link">
+            Skip to content
+          </a>
+
+          {/* Main site content target for skip link */}
+          <div id="site-main">{children}</div>
         </ThemeProvider>
         <Analytics />
       </body>

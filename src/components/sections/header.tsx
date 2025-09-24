@@ -5,6 +5,7 @@ import Image from "next/image";
 import { MdVerified } from "react-icons/md";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 import { ABOUT_ME } from "@/components/constants/data";
+import AboutMe from "./about-me";
 
 // =============================================
 // TYPE DEFINITIONS
@@ -148,6 +149,10 @@ const Header = () => {
         </div>
 
         <LocationTime currentTime={currentTime} />
+      </div>
+      {/* Include AboutMe content inside the header as requested */}
+      <div className="mt-4">
+        <AboutMe />
       </div>
     </section>
   );
