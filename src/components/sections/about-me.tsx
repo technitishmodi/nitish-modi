@@ -4,8 +4,7 @@ import Link from "next/link";
 import { ABOUT_ME, SOCIAL_LINKS } from "@/components/constants/data";
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import { FaXTwitter, FaInstagram } from "react-icons/fa6";
-import { SiLeetcode, SiPeerlist } from "react-icons/si";
-import { FaBlog } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 // =============================================
 // SOCIAL BUTTONS DATA
@@ -63,8 +62,7 @@ const SOCIAL_BUTTONS = [
 // =============================================
 export default function AboutMe() {
   return (
-    <section className="pb-10">
-      <div className="mb-8">
+    <section className="mb-8">
         {ABOUT_ME.description.map((para, i) => (
           <p
             key={i}
@@ -73,7 +71,6 @@ export default function AboutMe() {
             {para}
           </p>
         ))}
-      </div>
 
       <div className="flex gap-3 flex-wrap">
         {SOCIAL_BUTTONS.filter((btn) => btn.href && btn.href.trim() !== "").map((btn) => (

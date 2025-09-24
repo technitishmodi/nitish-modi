@@ -36,10 +36,19 @@ const useTheme = () => {
 // =============================================
 // MAIN COMPONENT
 // =============================================
+type Repo = {
+  id: number;
+  html_url: string;
+  name: string;
+  stargazers_count: number;
+  description?: string | null;
+  language?: string | null;
+};
+
 export default function Github() {
   const colorScheme = useTheme();
-  const [repos, setRepos] = useState<any[] | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [repos, setRepos] = useState<Repo[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -51,11 +60,15 @@ export default function Github() {
         if (!res.ok) {
           throw new Error(`GitHub API error: ${res.status}`);
         }
-        const data = await res.json();
-        const sorted = (data || []).sort((a: any, b: any) => b.stargazers_count - a.stargazers_count);
+        const data: Repo[] = await res.json();
+        const sorted = (data || []).sort((a, b) => b.stargazers_count - a.stargazers_count);
         setRepos(sorted.slice(0, 3));
-      } catch (err: any) {
-        setError(err?.message || "Failed to fetch repos");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message || "Failed to fetch repos");
+        } else {
+          setError(String(err) || "Failed to fetch repos");
+        }
         setRepos([]);
       } finally {
         setLoading(false);

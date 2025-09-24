@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ExternalLink, Github, Eye } from "lucide-react";
+import { ExternalLink, Github, Image as LucideImage } from "lucide-react";
+import NextImage from "next/image";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import Link from "next/link";
 import { PROJECTS } from "@/components/constants/data";
@@ -46,14 +47,16 @@ export default function Projects() {
                     >
                       {/* Hover overlay */}
                       <div className="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <Eye className="w-6 h-6 text-white" />
+                        <LucideImage className="w-6 h-6 text-white" aria-hidden />
                       </div>
 
                       {/* Image */}
-                      <img
+                      <NextImage
                         src={project.screenshot}
                         alt={`${project.name} screenshot`}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        unoptimized
                       />
                     </button>
                   </div>

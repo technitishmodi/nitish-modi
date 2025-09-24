@@ -13,6 +13,7 @@ export default function Home() {
     <div className="font-sans min-h-screen flex flex-col items-center justify-center relative">
       <main className="relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <section id="header"><Header /></section>
+        <div aria-hidden="true" className="my-6 border-t border-border" />
 
         <SectionTabs
           tabs={[

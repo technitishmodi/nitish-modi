@@ -14,7 +14,7 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="p-2 text-sm rounded-md bg-background box border border-border">
+      <div className="p-2 text-sm rounded-md bg-background btn border border-border">
         <div className="w-4 h-4" /> {/* Matches icon size */}
       </div>
     );
@@ -22,7 +22,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      className="p-2 text-sm rounded-md bg-background box border border-border"
+      className="p-2 text-sm rounded-md bg-background btn border border-border"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       aria-label="Toggle theme"
     >

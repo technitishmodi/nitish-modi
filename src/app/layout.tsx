@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
+import ThemeToggle from "@/components/ui/theme-toggle";
 
 const outfit = Outfit({
   variable: "--font-primary",
@@ -128,6 +129,10 @@ export default function RootLayout({
 
           {/* Main site content target for skip link */}
           <div id="site-main">{children}</div>
+          {/* Fixed Theme Toggle (bottom-left) */}
+          <div className="fixed left-4 bottom-4 z-50">
+            <ThemeToggle />
+          </div>
         </ThemeProvider>
         <Analytics />
       </body>

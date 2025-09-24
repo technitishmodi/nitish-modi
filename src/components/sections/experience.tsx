@@ -9,12 +9,12 @@ export default function Experience() {
 
       <div className="space-y-6 relative">
         {/* Single continuous vertical line */}
-        <div className="absolute left-0 top-0 -bottom-6 w-px bg-accent"></div>
+        <div className="absolute left-3 top-0 -bottom-6 w-px bg-accent"></div>
 
         {EXPERIENCE.map((exp, index) => (
           <div key={index} className="relative">
             {/* Solid dot */}
-            <span className="absolute -left-3 -top-0 bg-muted rounded-full w-6 h-6 flex items-center justify-center z-10">
+            <span className="absolute -left-0 -top-0 bg-muted rounded-full w-6 h-6 flex items-center justify-center z-10">
               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
             </span>
 

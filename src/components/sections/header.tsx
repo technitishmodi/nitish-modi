@@ -119,7 +119,7 @@ const Header = () => {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
 
   return (
-    <section className="pt-10">
+    <section className="pt-16">
       <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4">
         <ProfileImage isHovering={isHovering} setIsHovering={setIsHovering} />
 
