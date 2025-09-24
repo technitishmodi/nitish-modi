@@ -1,6 +1,6 @@
 
 import { ImageResponse } from "next/og";
-import { ABOUT_ME, SOCIAL_LINKS } from "../components/constants/data";
+import { ABOUT_ME, SOCIAL_LINKS, USER_NAMES } from "../components/constants/data";
 
 
 export const runtime = "edge";
@@ -25,9 +25,9 @@ export default async function Image() {
           background: "#111",
         }}
       >
-        <h1 style={{ fontSize: 64, color: "#fff", fontWeight: 700, margin: 0 }}>{ABOUT_ME.name}</h1>
-        <p style={{ fontSize: 32, color: "#bbb", margin: "16px 0 0 0" }}>{ABOUT_ME.title}</p>
-        <p style={{ fontSize: 24, color: "#888", margin: "32px 0 0 0" }}>{SOCIAL_LINKS.github.replace("https://github.com/", "github.com/")}</p>
+  <h1 style={{ fontSize: 64, color: "#fff", fontWeight: 700, margin: 0 }}>{ABOUT_ME.name}</h1>
+  <p style={{ fontSize: 32, color: "#bbb", margin: "16px 0 0 0" }}>{ABOUT_ME.title}</p>
+  <p style={{ fontSize: 24, color: "#888", margin: "32px 0 0 0" }}>{`github.com/${USER_NAMES.githubUsername}`}</p>
       </div>
     ),
     {

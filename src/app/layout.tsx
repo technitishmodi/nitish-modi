@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
 import ThemeToggle from "@/components/ui/theme-toggle";
+import { ABOUT_ME, SOCIAL_LINKS } from "@/components/constants/data";
 
 const outfit = Outfit({
   variable: "--font-primary",
@@ -14,12 +15,10 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Your Name - Portfolio Website",
-  description:
-    "Your portfolio showcasing your development projects and skills. Update this description with your own details.",
+  title: `${ABOUT_ME.name} - Portfolio Website`,
+  description: ABOUT_ME.description.join(" \n "),
   keywords: [
-    "Your Name",
+    ABOUT_ME.name,
     "Full Stack Developer",
     "React",
     "Next.js",
@@ -30,13 +29,12 @@ export const metadata: Metadata = {
     "Backend Developer",
     "JavaScript",
     "Node.js",
-    "Your City",
-    "Your Country",
+    ABOUT_ME.location,
   ],
-  authors: [{ name: "Your Name" }],
-  creator: "Your Name",
-  publisher: "Your Name",
-  metadataBase: new URL("https://your-portfolio-url.com"),
+  authors: [{ name: ABOUT_ME.name }],
+  creator: ABOUT_ME.name,
+  publisher: ABOUT_ME.name,
+  metadataBase: new URL(SOCIAL_LINKS.github),
   alternates: {
     canonical: "/",
   },
@@ -44,17 +42,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://your-portfolio-url.com",
-    title: "Your Name - Portfolio Website for a Full Stack Developer",
-    description:
-      "Personal portfolio showcasing skills, projects, experience, and more. Built with modern web technologies.",
-    siteName: "Your Name Portfolio",
+    title: `${ABOUT_ME.name} - Portfolio Website for a Full Stack Developer`,
+    description: ABOUT_ME.description.join(" \n "),
+    siteName: `${ABOUT_ME.name} Portfolio`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your Name - Portfolio Website for a Full Stack Developer",
-    description:
-      "Personal portfolio showcasing skills, projects, experience, and more. Built with modern web technologies.",
-    creator: "@your_twitter_handle",
+    title: `${ABOUT_ME.name} - Portfolio Website for a Full Stack Developer`,
+    description: ABOUT_ME.description.join(" \n "),
+    creator: SOCIAL_LINKS.twitter.replace("https://twitter.com/", "@"),
   },
   robots: {
     index: true,
