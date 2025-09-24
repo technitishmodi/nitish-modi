@@ -57,8 +57,8 @@ export default function SectionTabs({ tabs, initialTab }: SectionTabsProps) {
             onClick={() => setActive(tab.id)}
             className={`w-full px-3 py-1 rounded-md text-sm font-medium border-2 transition-colors
               ${active === tab.id
-                ? "border-[hsl(var(--link))] bg-[hsl(var(--tab-active-bg))] text-[hsl(var(--foreground))]"
-                : "border-[hsl(var(--border))] bg-transparent text-[hsl(var(--foreground))] hover:bg-[hsl(var(--hover-bg))] hover:border-[hsl(var(--border-hover))]"}
+                ? "border-[hsl(var(--border-hover))] bg-white/10 dark:bg-white/6 text-[hsl(var(--foreground))]"
+                : "border-[hsl(var(--border))] bg-transparent text-[hsl(var(--foreground))] hover:border-[hsl(var(--border-hover))]"}
               focus:outline-none focus:ring-0
             `}
           >
