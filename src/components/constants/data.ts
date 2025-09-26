@@ -3,7 +3,7 @@ export const ABOUT_ME = {
   name: "Nitish Modi",
   title: "Cybersecurity Enthusiast & Full Stack Developer",
   location: "Mumbai, India",
-  profileImage: "/profile-image.webp",
+  profileImage: "/profile-image.png",
   profileGif: "/profile-gif.gif",
   description: [
     "Hey 👋, I’m Nitish, a developer who codes with curiosity and hacks with responsibility. I love building sleek mobile apps with Flutter, Android, and iOS — and making sure they’re as secure as they are functional.",
@@ -70,12 +70,12 @@ export const SKILLS = {
 // Projects
 export const PROJECTS = [
   {
-    name: "SecureWeb Portfolio",
-    description: "A secure, mobile-responsive portfolio website built with Next.js 15 and modern security practices. Features comprehensive mobile optimization, professional design, and robust security implementations.",
-    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Security Headers"],
-    github: "https://github.com/technitishmodi/Portfolio",
-    screenshot: "/portfolio-hero.jpg",
-    link: "https://nitishmodi.vercel.app"
+    name: "LinkCrypta",
+    description: "A secure password and link management app with offline-first storage using Hive and optional cloud synchronization. All sensitive data is encrypted, requiring a master password for viewing or copying credentials.",
+    tech: ["Flutter", "Dart", "Hive", "Firebase Firestore", "Firebase Authentication", "AES Encryption"],
+    github: "https://github.com/technitishmodi/LinkCrypta",
+    screenshot: "/linkcrypta.jpeg",
+    // link: "https://linkcrypta.vercel.app"
   },
   {
     name: "Vulnerability Scanner",

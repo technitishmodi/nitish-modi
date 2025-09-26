@@ -38,69 +38,77 @@ export interface DetailedProject {
 
 export const DETAILED_PROJECTS: DetailedProject[] = [
   {
-    name: "SecureWeb Portfolio",
-    description: "A secure, mobile-responsive portfolio website built with Next.js 15 and modern security practices. Features comprehensive mobile optimization, professional design, and robust security implementations.",
-    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Security Headers"],
-    link: "https://nitishmodi.vercel.app",
-    github: "https://github.com/technitishmodi/Portfolio",
-    images: {
-      hero: "/portfolio-hero.jpg",
-      gallery: [
-        {
-          src: "/portfolio-mobile.jpg",
-          alt: "Mobile responsive design",
-          caption: "Fully responsive design optimized for all devices"
-        },
-        {
-          src: "/portfolio-security.jpg",
-          alt: "Security implementation",
-          caption: "Modern security practices and headers"
-        }
-      ]
-    },
-    features: [
-      "Mobile-first responsive design",
-      "Professional cybersecurity-focused portfolio",
-      "Touch-friendly navigation with hamburger menu",
-      "Optimized performance with Next.js 15",
-      "Modern security implementations",
-      "SEO optimized with structured data",
-      "Dark/Light theme support",
-      "Contact form with validation",
-      "GitHub activity integration",
-      "Professional project showcases"
-    ],
-    technicalDetails: [
+  name: "LinkCrypta",
+  description: "A secure password and link management app with offline-first storage using Hive and optional cloud synchronization. All sensitive data is encrypted, requiring a master password for viewing or copying credentials.",
+  tech: ["Flutter", "Dart", "Hive", "Firebase Firestore", "Firebase Authentication", "AES Encryption"],
+  link: "https://yourvaultmate-link.com",
+  github: "https://github.com/yourusername/vaultmate",
+  images: {
+    hero: "/vaultmate-hero.jpg",
+    gallery: [
       {
-        title: "Mobile Responsiveness",
-        description: "Implemented comprehensive mobile optimization with touch targets meeting accessibility standards (44px minimum), responsive grids, and mobile-first design approach."
+        src: "/vaultmate-dashboard.jpg",
+        alt: "VaultMate dashboard",
+        caption: "Organized view of passwords and saved links"
       },
       {
-        title: "Security Implementation", 
-        description: "Built with modern security practices including proper headers, secure form handling, and protection against common web vulnerabilities."
-      },
-      {
-        title: "Performance Optimization",
-        description: "Leveraged Next.js 15 with Turbopack for fast development builds and optimized production performance."
+        src: "/vaultmate-encryption.jpg",
+        alt: "Encrypted password view",
+        caption: "Encrypted data visible until master password is entered"
       }
-    ],
-    challenges: [
-      {
-        problem: "Creating a professional portfolio that stands out in cybersecurity field",
-        solution: "Focused on clean design with security-oriented project showcases and professional presentation of technical skills."
-      },
-      {
-        problem: "Ensuring perfect mobile experience across all devices",
-        solution: "Implemented mobile-first design with comprehensive touch target optimization and responsive navigation."
-      }
-    ],
-    metrics: {
-      "Mobile Performance Score": "95+",
-      "Security Headers": "A+ Grade", 
-      "Load Time": "<2 seconds",
-      "Responsive Breakpoints": "5+"
-    }
+    ]
   },
+  features: [
+    "Offline-first local storage using Hive",
+    "Cloud sync with Firebase Firestore",
+    "AES encryption for stored credentials",
+    "Master password protection before viewing or copying data",
+    "Favorites and bookmarks for quick access",
+    "Secure password generator",
+    "Biometric authentication (Fingerprint/Face ID)",
+    "Search and categorization for saved credentials"
+  ],
+  technicalDetails: [
+    {
+      title: "Encryption & Decryption",
+      description: "AES-based encryption ensures that passwords and links are securely stored. Viewing or copying requires master password authentication.",
+      code: `import 'package:encrypt/encrypt.dart' as encrypt;
+
+final key = encrypt.Key.fromUtf8(masterPassword.padRight(32, '0'));
+final iv = encrypt.IV.fromLength(16);
+
+String encryptText(String text) {
+  final encrypter = encrypt.Encrypter(encrypt.AES(key));
+  return encrypter.encrypt(text, iv: iv).base64;
+}
+
+String decryptText(String encrypted) {
+  final encrypter = encrypt.Encrypter(encrypt.AES(key));
+  return encrypter.decrypt64(encrypted, iv: iv);
+}`
+    },
+    {
+      title: "Local & Cloud Sync",
+      description: "Data is first stored locally in Hive for offline access. When sync is enabled, changes are mirrored in Firestore with end-to-end encryption."
+    }
+  ],
+  challenges: [
+    {
+      problem: "Ensuring security while syncing data on cloud",
+      solution: "All data is encrypted locally before syncing, so Firestore only stores encrypted blobs."
+    },
+    {
+      problem: "Preventing unauthorized access when copying passwords",
+      solution: "Implemented a master password prompt before copying sensitive data to clipboard."
+    }
+  ],
+  metrics: {
+    "Passwords Stored": "5,000+",
+    "Links Saved": "2,000+",
+    "Average Sync Latency": "200ms",
+    "Encryption Standard": "AES-256"
+  }
+},
   {
     name: "Vulnerability Scanner",
     description: "An automated web application vulnerability scanner that identifies common security issues like XSS, SQL injection, and CSRF vulnerabilities. Built with Python and includes comprehensive reporting.",
